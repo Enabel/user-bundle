@@ -1,0 +1,35 @@
+site_name: enabel/user-bundle
+site_description: Symfony User management
+
+repo_name: enabel/user-bundle
+repo_url: https://github.com/Enabel/user-bundle
+edit_uri: https://github.com/Enabel/user-bundle/edit/main/docs/
+
+theme:
+  name: mkdocs
+  language: en
+  features:
+    - navigation.instant
+    - navigation.top
+    - toc.integrate
+  palette:
+    scheme: slate
+    primary: blue
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/enabel/user-bundle
+      name: enabel/user-bundle repository
+  generator: false
+
+plugins:
+  - search: { }
+
+nav:
+  - index.md
+
+markdown_extensions:
+  - toc:
+      permalink: '#'
+  - admonition: { }
