@@ -4,35 +4,35 @@ Make sure Composer is installed globally, as explained in the
 [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
-## Applications that use Symfony Flex
+## Installation with Symfony Flex
 
 Open a command console, enter your project directory and execute:
 
-```console
-$ composer require enabel/user-bundle
+```bash
+composer require enabel/user-bundle
 ```
 
-## Applications that don't use Symfony Flex
+### Setup database
 
-### Step 1: Download the Bundle
-
-Open a command console, enter your project directory and execute the
-following command to download the latest stable version of this bundle:
-
-```console
-$ composer require enabel/user-bundle
+```bash
+bin/console make:migration
+bin/console doctrine:migration:migrate
 ```
 
-### Step 2: Enable the Bundle
+## Installation without Symfony Flex
 
-Then, enable the bundle by adding it to the list of registered bundles
-in the `config/bundles.php` file of your project:
+For a installation without Symfony Flex, follow [these instructions](without_flex.md)
 
-```php
-// config/bundles.php
+# Usage
 
-return [
-    // ...
-    Enabel\UserBundle\EnabelUserBundle::class => ['all' => true],
-];
-```
+## Authentication:
+
+To enable the authentication follow [these instructions](authentication.md)
+
+## Easyadmin:
+
+To manage users in your Easyadmin dashboard follow [these instructions](easyadmin.md)
+
+## Command:
+
+This bundle come with a bunch of commands, [here](command.md) is the documentation

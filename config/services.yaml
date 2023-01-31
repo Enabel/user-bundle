@@ -1,10 +1,77 @@
-services:
-  _defaults:
-    autowire: true      # Automatically injects dependencies in your services.
-    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+parameters:
+  locale: 'en'
+  enabled_locales: [ 'en', 'fr' ]
+  doctrine_behaviors_blameable_user_entity: Enabel\UserBundle\Entity\User
 
-  Enabel\UserBundle\:
-    resource: '../src/'
-    exclude:
-      - '../src/DependencyInjection/'
-      - '../src/Entity/'
+services:
+
+  Enabel\UserBundle\Controller\:
+    resource: '../src/Controller'
+    autowire: true
+    autoconfigure: true
+    tags: [ 'controller.service_arguments' ]
+
+  Enabel\UserBundle\Command\User\AddCommand:
+    autowire: true
+    autoconfigure: true
+    arguments:
+      - "@doctrine.orm.entity_manager"
+      - "@security.password_hasher"
+      - "@enabel_user.user_repository"
+      - "@enabel_user.validator"
+    tags:
+      - { name: 'console.command', command: 'enabel:user:add' }
+
+  Enabel\UserBundle\Command\User\PromoteCommand:
+    autowire: true
+    autoconfigure: true
+    arguments:
+      - "@doctrine.orm.entity_manager"
+      - "@enabel_user.user_repository"
+      - "@enabel_user.validator"
+    tags:
+      - { name: 'console.command', command: 'enabel:user:promote' }
+
+  Enabel\UserBundle\Command\User\DemoteCommand:
+    autowire: true
+    autoconfigure: true
+    arguments:
+      - "@doctrine.orm.entity_manager"
+      - "@enabel_user.user_repository"
+      - "@enabel_user.validator"
+    tags:
+      - { name: 'console.command', command: 'enabel:user:demote' }
+
+  Enabel\UserBundle\Utils\Validator:
+    autowire: true
+    autoconfigure: true
+
+  enabel_user.validator:
+    alias: Enabel\UserBundle\Utils\Validator
+      
+  enabel_user.local_authenticator:
+    class: Enabel\UserBundle\Security\LocalAuthenticator
+    arguments:
+      - '@router'
+      - '@Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface'
+
+  enabel_user.azure_authenticator:
+    class: Enabel\UserBundle\Security\AzureAuthenticator
+    arguments:
+      - '@knpu.oauth2.registry'
+      - '@router'
+      - '@Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface'
+      - '@enabel_user.user_repository'
+
+
+  enabel_user.provider:
+    class: Enabel\UserBundle\Security\UserProvider
+    arguments:
+      - '@enabel_user.user_repository'
+
+  enabel_user.user_repository:
+    class: '%enabel_user.user_repository%'
+    arguments:
+      - '@Doctrine\Persistence\ManagerRegistry'
+      - '%enabel_user.user_class%'
+    tags: [ 'doctrine.repository_service' ]

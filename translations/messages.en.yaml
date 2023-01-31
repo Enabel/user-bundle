@@ -1,0 +1,53 @@
+enabel_user:
+    login:
+        title: 'Sign in'
+        btn:
+            enabel: Login
+            external: 'External login'
+            submit: Login
+        title.external: 'Sign in (external)'
+        form:
+            email: Email
+            password: Password
+            remember_me: 'Remember me'
+    admin:
+        action:
+            impersonate: Impersonate
+            restore: Restore
+        flashes:
+            impersonate: 'You are logged in as %name%'
+            restored: '%name% has been restored'
+        form:
+            showDeleted: 'Show deleted'
+            'yes': Yes
+            'no': No
+            id: '#'
+            email: email
+            displayName: 'Full Name'
+            jobTitle: 'Job title'
+            countryWorkplace: 'Country workplace'
+            locale: Language
+            lastLoginAt: 'Last Login'
+            password: 'Password'
+            password.confirm: 'Password confirmation'
+            roles: Roles
+            createdAt: 'Created at'
+            updatedAt: 'Updated at'
+            deletedAt: 'Deleted at'
+            isDeleted: 'Deleted?'
+        menu:
+            user: User
+            user.profile: Profile
+            permissions: Permissions
+        panel:
+            account: 'Account information'
+            personal: 'Personal information'
+        tab:
+            details: Details
+            log: Log
+        title:
+            edit_user: 'Edit a user'
+            manage_users: 'Manage users'
+            new_user: 'Add a user'
+            user: User
+            users: Users

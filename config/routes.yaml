@@ -1,0 +1,3 @@
+enabel_user:
+  resource: "../src/Controller/"
+  type: attribute

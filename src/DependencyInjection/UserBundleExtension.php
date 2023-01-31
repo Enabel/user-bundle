@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Enabel\UserBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -18,7 +19,11 @@ class UserBundleExtension extends Extension implements PrependExtensionInterface
     public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
-        $this->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration($configuration, $configs);
+
+        foreach ($config as $key => $value) {
+            $container->setParameter('enabel_user.' . $key, $value);
+        }
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(dirname(__DIR__, 2) . '/config'));
         $loader->load('services.yaml');
@@ -26,17 +31,22 @@ class UserBundleExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container): void
     {
-//        $container->prependExtensionConfig('stof_doctrine_extensions', [
-//            'orm' => [
-//                'default' => [
-//                    'timestampable' => true,
-//                ],
-//            ],
-//        ]);
+        $configs = $container->getExtensionConfig($this->getAlias());
+        /** @var ConfigurationInterface $configuration */
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
+        $container->prependExtensionConfig('enabel_user', $config);
 
-        $container->prependExtensionConfig('twig', [
+        $twigConfig = [
             'form_themes' => ['bootstrap_5_layout.html.twig'],
-        ]);
+        ];
+
+        $twigConfig['globals']['enabel_user'] = [];
+        foreach ($config as $k => $v) {
+            $twigConfig['globals']['enabel_user'][$k] = $v;
+        }
+
+        $container->prependExtensionConfig('twig', $twigConfig);
     }
 
     public function getAlias(): string

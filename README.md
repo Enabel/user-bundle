@@ -6,9 +6,9 @@
 
 The bundle aims to help with user management, including:
 
-- Forms (Login, reset, register)
-- Utilities
-- Validators: PasswordStrength, Recaptcha, Slug
+- Forms (Login, SSO Azure)
+- Commands to generate, promote and demote users
+- A EasyAdmin interface to manage users
 
 ## Installation & usage
 
