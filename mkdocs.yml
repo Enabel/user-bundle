@@ -6,15 +6,8 @@ repo_url: https://github.com/Enabel/user-bundle
 edit_uri: https://github.com/Enabel/user-bundle/edit/main/docs/
 
 theme:
-  name: mkdocs
+  name: readthedocs
   language: en
-  features:
-    - navigation.instant
-    - navigation.top
-    - toc.integrate
-  palette:
-    scheme: slate
-    primary: blue
 
 extra:
   social:
@@ -27,9 +20,8 @@ plugins:
   - search: { }
 
 nav:
-  - index.md
-
-markdown_extensions:
-  - toc:
-      permalink: '#'
-  - admonition: { }
+  - Installation: 'index.md'
+  - Authentication: 'authentication.md'
+  - Command: 'command.md'
+  - EasyAdmin: 'easyadmin.md'
+  - 'Bug tracker': 'https://github.com/Enabel/user-bundle/issues'
