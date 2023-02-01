@@ -6,7 +6,24 @@ of the Composer documentation.
 
 ## Installation with Symfony Flex
 
-Open a command console, enter your project directory and execute:
+Add our recipes endpoint
+
+```json
+{
+  "extra": {
+    "symfony": {
+      "endpoint": [
+        "https://api.github.com/repos/Enabel/recipes/contents/index.json?ref=flex/main",
+        ...
+        "flex://defaults"
+      ],
+      "allow-contrib": true
+    }
+  }
+}
+```
+
+Install with composer
 
 ```bash
 composer require enabel/user-bundle
