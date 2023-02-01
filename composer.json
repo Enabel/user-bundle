@@ -11,7 +11,6 @@
     ],
     "require": {
         "php": "^8.0",
-        "doctrine/orm": "^2.13",
         "easycorp/easyadmin-bundle": "^4.4",
         "enabel/layout-bundle": "^1.0",
         "eschmar/time-ago-bundle": "^2.0",
@@ -19,10 +18,8 @@
         "knpuniversity/oauth2-client-bundle": "^2.11",
         "symfony/config": "^6.0",
         "symfony/dependency-injection": "^6.0",
-        "symfony/flex": "^2.2",
         "symfony/framework-bundle": "^6.0",
         "symfony/http-kernel": "^6.0",
-        "symfony/runtime": "^6.0",
         "symfony/security-bundle": "^6.0",
         "symfony/ux-twig-component": "^2.7",
         "thenetworg/oauth2-azure": "^2.1"
@@ -49,9 +46,8 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "symfony/flex": true,
-            "symfony/runtime": true
+            "symfony/flex": false,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "scripts": {
