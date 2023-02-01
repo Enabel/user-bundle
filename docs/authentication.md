@@ -66,10 +66,12 @@ security:
 security:
     ...
     access_control:
-        ...
-        - { path: ^/auth/login$, roles: PUBLIC_ACCESS }
+        - { path: ^/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/azure/login, roles: PUBLIC_ACCESS }
+        - { path: ^/azure/check, roles: PUBLIC_ACCESS }
         - { path: ^/auth/logout, roles: PUBLIC_ACCESS }
         - { path: ^/admin, roles: ROLE_ADMIN }
+        ...
 ```
 
 ## Azure
