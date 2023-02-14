@@ -6,6 +6,7 @@ namespace Enabel\UserBundle\Security;
 
 use Enabel\UserBundle\Entity\User;
 use Enabel\UserBundle\Repository\UserRepository;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAccountStatusException;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
@@ -27,6 +28,7 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
      * need to implement this method.
      *
      * @throws UserNotFoundException if the user is not found
+     * @throws CustomUserMessageAccountStatusException if the user is deleted (SoftDelete)
      */
     public function loadUserByIdentifier(string $identifier): UserInterface
     {
@@ -37,6 +39,10 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
             $e->setUserIdentifier($identifier);
 
             throw $e;
+        }
+
+        if ($user->isDeleted()) {
+            throw new CustomUserMessageAccountStatusException(sprintf('User "%s" is deleted.', $identifier));
         }
 
         return $user;

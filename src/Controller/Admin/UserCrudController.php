@@ -33,6 +33,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
+use Symfony\Contracts\Service\Attribute\SubscribedService;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 abstract class UserCrudController extends AbstractCrudController
@@ -323,7 +324,7 @@ abstract class UserCrudController extends AbstractCrudController
     }
 
     /**
-     * @return array<string>
+     * @return array<string|SubscribedService>
      */
     public static function getSubscribedServices(): array
     {
