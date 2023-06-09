@@ -13,8 +13,7 @@ Add our recipes endpoint
   "extra": {
     "symfony": {
       "endpoint": [
-        "https://api.github.com/repos/Enabel/recipes/contents/index.json?ref=flex/main",
-        ...
+        "https://api.github.com/repos/Enabel/recipes/contents/index.json?ref=flex/main",        
         "flex://defaults"
       ],
       "allow-contrib": true
@@ -22,6 +21,8 @@ Add our recipes endpoint
   }
 }
 ```
+
+**Don't forget to run `compose update` as you have just modified his configuration.**
 
 Install with composer
 
