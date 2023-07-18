@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.6](https://github.com/enabel/user-bundle/tree/1.0.6) (2023-07-18)
+
+[Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.5...1.0.6)
+
 ## [1.0.5](https://github.com/enabel/user-bundle/tree/1.0.5) (2023-06-09)
 
 [Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.4...1.0.5)
