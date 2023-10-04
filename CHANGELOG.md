@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.7](https://github.com/enabel/user-bundle/tree/1.0.7) (2023-10-04)
+
+[Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.6...1.0.7)
+
 ## [1.0.6](https://github.com/enabel/user-bundle/tree/1.0.6) (2023-07-18)
 
 [Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.5...1.0.6)
@@ -8,9 +12,13 @@
 
 [Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.4...1.0.5)
 
-## [1.0.4](https://github.com/enabel/user-bundle/tree/1.0.4) (2023-04-17)
+## [1.0.4](https://github.com/enabel/user-bundle/tree/1.0.4) (2023-05-17)
 
 [Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.3...1.0.4)
+
+**Merged pull requests:**
+
+- :lipstick: Adapt UI for theme v2 [\#1](https://github.com/Enabel/user-bundle/pull/1) ([damienlagae](https://github.com/damienlagae))
 
 ## [1.0.3](https://github.com/enabel/user-bundle/tree/1.0.3) (2023-02-14)
 
