@@ -105,7 +105,9 @@ abstract class UserRepository extends ServiceEntityRepository implements Passwor
 
             if ($owner->claim('language') !== null && is_string($owner->claim('language'))) {
                 $locale = strtolower(substr($owner->claim('language'), 0, 2));
-                $user->setLocale($locale);
+                if (empty($user->getLocale())) {
+                    $user->setLocale($locale);
+                }
             }
 
             $user
