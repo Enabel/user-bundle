@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "easycorp/easyadmin-bundle": "^4.4",
+        "easycorp/easyadmin-bundle": "<4.8",
         "enabel/layout-bundle": "^1.0",
         "eschmar/time-ago-bundle": "^2.0",
         "firebase/php-jwt": "<6.6",
