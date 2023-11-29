@@ -27,10 +27,6 @@ use function Symfony\Component\String\u;
 )]
 class AddCommand extends Command
 {
-    /**
-     * @var string
-     */
-    protected static $defaultName = 'enabel:user:add';
     private EntityManagerInterface $entityManager;
     private SymfonyStyle $io;
     private UserPasswordHasherInterface $passwordHasher;

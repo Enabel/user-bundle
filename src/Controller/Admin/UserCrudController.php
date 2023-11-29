@@ -189,6 +189,15 @@ abstract class UserCrudController extends AbstractCrudController
                 ],
             ])
             ->setColumns('col-md-6');
+        if (
+            Crud::PAGE_EDIT == $pageName
+            && $subject !== null
+            && str_contains($subject->getEmail(), '@enabel.be')
+        ) {
+            $plainPassword->setDisabled(true);
+            $plainPassword->setRequired(false);
+        }
+
         $roles = ChoiceField::new('roles', 'enabel_user.admin.form.roles')
             ->setRequired(true)
             ->allowMultipleChoices()
@@ -210,10 +219,10 @@ abstract class UserCrudController extends AbstractCrudController
             ->renderAsSwitch(false);
 
         $tabDetails = FormField::addTab('enabel_user.admin.tab.details');
-        $panelPersonal = FormField::addPanel('enabel_user.admin.panel.personal')
-            ->setIcon('id-card');
-        $panelAccount = FormField::addPanel('enabel_user.admin.panel.account')
-            ->setIcon('key');
+        $panelPersonal = FormField::addFieldset('enabel_user.admin.panel.personal')
+            ->setIcon('fa fa-id-card');
+        $panelAccount = FormField::addFieldset('enabel_user.admin.panel.account')
+            ->setIcon('fa fa-key');
         $tabLog = FormField::addTab('enabel_user.admin.tab.log');
 
         if (Crud::PAGE_INDEX === $pageName) {
