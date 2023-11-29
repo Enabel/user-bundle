@@ -25,10 +25,6 @@ use Symfony\Component\Stopwatch\Stopwatch;
 )]
 class DemoteCommand extends Command
 {
-    /**
-     * @var string
-     */
-    protected static $defaultName = 'enabel:user:demote';
     private UserRepository $userRepository;
     private Validator $validator;
     private SymfonyStyle $io;
