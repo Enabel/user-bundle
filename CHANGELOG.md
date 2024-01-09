@@ -1,8 +1,8 @@
 # Changelog
 
-## [2.0.0](https://github.com/enabel/user-bundle/tree/2.0.0) (2023-11-29)
+## [1.0.9](https://github.com/enabel/user-bundle/tree/1.0.9) (2024-01-09)
 
-[Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.8...2.0.0)
+[Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.8...1.0.9)
 
 **Merged pull requests:**
 
