@@ -105,7 +105,7 @@ class AddCommand extends Command
         if (null !== $email) {
             // @codeCoverageIgnoreStart
             $this->io->text(' > <info>Email</info>: ' . $email);
-        // @codeCoverageIgnoreEnd
+            // @codeCoverageIgnoreEnd
         } else {
             $email = $this->io->ask('Email', null, [$this->validator, 'validateEmail']);
             $input->setArgument('email', $email);
@@ -117,7 +117,7 @@ class AddCommand extends Command
         if (null !== $password) {
             // @codeCoverageIgnoreStart
             $this->io->text(' > <info>Password</info>: ' . u('*')->repeat(u($password)->length()));
-        // @codeCoverageIgnoreEnd
+            // @codeCoverageIgnoreEnd
         } else {
             $password = $this->io->askHidden(
                 'Password (your type will be hidden)',
@@ -131,7 +131,7 @@ class AddCommand extends Command
         if (null !== $displayName) {
             // @codeCoverageIgnoreStart
             $this->io->text(' > <info>Display name</info>: ' . $displayName);
-        // @codeCoverageIgnoreEnd
+            // @codeCoverageIgnoreEnd
         } else {
             $displayName = $this->io->ask('Display name', null, [$this->validator, 'validateDisplayName']);
             $input->setArgument('display-name', $displayName);

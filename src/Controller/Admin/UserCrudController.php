@@ -189,13 +189,11 @@ abstract class UserCrudController extends AbstractCrudController
                 ],
             ])
             ->setColumns('col-md-6');
-        if (
-            Crud::PAGE_EDIT == $pageName
-            && $subject !== null
-            && str_contains($subject->getEmail(), '@enabel.be')
-        ) {
-            $plainPassword->setDisabled(true);
-            $plainPassword->setRequired(false);
+        if (Crud::PAGE_EDIT === $pageName && $subject !== null) {
+            if ($subject->getEmail() !== null && str_contains($subject->getEmail(), '@enabel.be')) {
+                $plainPassword->setDisabled(true);
+                $plainPassword->setRequired(false);
+            }
         }
 
         $roles = ChoiceField::new('roles', 'enabel_user.admin.form.roles')
