@@ -1,6 +1,7 @@
 # Enabel: User Bundle
 
 [![License](https://img.shields.io/badge/license-MIT-red.svg?style=flat-square)](LICENSE)
+[![SymfonyInsight](https://insight.symfony.com/projects/b4f74722-7cc0-471c-919b-605447c4fb6f/mini.svg)](https://insight.symfony.com/projects/b4f74722-7cc0-471c-919b-605447c4fb6f)
 
 ## Introduction
 
