@@ -82,7 +82,7 @@ abstract class UserCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('enabel_user.admin.title.user')
             ->setEntityLabelInPlural('enabel_user.admin.title.users')
             ->setSearchFields(['id', 'email', 'displayName'])
-            ->setEntityPermission(User::ADMIN)
+            ->setEntityPermission('ROLE_MANAGE_USER')
         ;
     }
 
