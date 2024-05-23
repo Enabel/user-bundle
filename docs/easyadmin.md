@@ -2,6 +2,8 @@
 
 Go to your dashboard controller, example : `src/Controller/Admin/DashboardController.php`
 
+To access the user management, you need to add the role `ROLE_MANAGE_USER` to the user.
+
 ```php
 <?php
 

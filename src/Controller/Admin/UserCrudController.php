@@ -109,7 +109,7 @@ abstract class UserCrudController extends AbstractCrudController
         $actions
             ->add(Crud::PAGE_DETAIL, $restoreUser)
             ->add(Crud::PAGE_INDEX, $restoreUser)
-            ->setPermission('restoreUser', 'ROLE_SUPER_ADMIN');
+            ->setPermission('restoreUser', 'ROLE_MANAGE_USER');
 
         $actions->update(
             Crud::PAGE_INDEX,
@@ -156,7 +156,7 @@ abstract class UserCrudController extends AbstractCrudController
             $rolesChoices[$role] = $role;
         }
 
-        if (!$this->isGranted('ROLE_SUPER_ADMIN') && in_array($pageName, [Crud::PAGE_NEW, Crud::PAGE_EDIT])) {
+        if (!$this->isGranted('ROLE_MANAGE_USER') && in_array($pageName, [Crud::PAGE_NEW, Crud::PAGE_EDIT])) {
             $accessibleRole = $this->roleHierarchy->getReachableRoleNames($currentUser->getRoles());
             $rolesChoices = array_intersect_key($rolesChoices, array_flip($accessibleRole));
         }
@@ -308,7 +308,7 @@ abstract class UserCrudController extends AbstractCrudController
 
     public function restoreUser(AdminContext $context): Response
     {
-        if (!$this->isGranted('ROLE_SUPER_ADMIN')) {
+        if (!$this->isGranted('ROLE_MANAGE_USER')) {
             throw new HttpException(Response::HTTP_UNAUTHORIZED);
         }
 
