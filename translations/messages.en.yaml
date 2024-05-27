@@ -62,6 +62,7 @@ enabel_user:
         btn:
             edit: Edit
             submit: Save
+            changePassword: 'Change password'
         label:
             id: '#'
             displayName: 'Full name'
@@ -70,6 +71,7 @@ enabel_user:
             language: Language
             password: Password
             password.old: 'Old password'
+            password.new: 'New password'
             password.change: 'Change password'
             password.repeat: 'Repeat password'
             roles: Roles

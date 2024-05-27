@@ -20,15 +20,15 @@ class ChangePassword extends AbstractType
     {
         $builder
             ->add('old-password', PasswordType::class, [
-                'label' => 'enabel_user.profile.label.oldPassword',
+                'label' => 'enabel_user.profile.label.password.old',
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'error.passwordMustMatch',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options' => ['label' => 'label.passwordNew'],
-                'second_options' => ['label' => 'label.passwordRepeat'],
+                'first_options' => ['label' => 'enabel_user.profile.label.password.new'],
+                'second_options' => ['label' => 'enabel_user.profile.label.password.repeat'],
             ])
             ->add('changePassword', SubmitType::class, [
                 'label' => 'enabel_user.profile.btn.changePassword',
