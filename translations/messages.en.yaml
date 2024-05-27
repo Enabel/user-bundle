@@ -1,3 +1,6 @@
+ROLE_SUPER_ADMIN': 'Super Administrator'
+ROLE_ADMIN': 'Administrator'
+ROLE_USER': 'User'
 enabel_user:
     login:
         title: 'Sign in'
@@ -76,6 +79,3 @@ enabel_user:
             updatedAt: 'Updated at'
             accountInformation: 'Account information'
             personalInformation: 'Personal information'
-    ROLE_SUPER_ADMIN': 'Super Administrator'
-    ROLE_ADMIN': 'Administrator'
-    ROLE_USER': 'User'

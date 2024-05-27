@@ -32,7 +32,7 @@ class UserProfile extends AbstractType
     {
         $builder
             ->add('displayName', TextType::class, [
-                'label' => 'enabel_user.profile.label.fullName',
+                'label' => 'enabel_user.profile.label.displayName',
             ])
             ->add('locale', ChoiceType::class, [
                 'label' => 'enabel_user.profile.label.language',
