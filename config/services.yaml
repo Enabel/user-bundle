@@ -1,7 +1,7 @@
 parameters:
   locale: 'en'
   enabled_locales: [ 'en', 'fr' ]
-  localeCodes: en|fr
+  locales: en|fr
   doctrine_behaviors_blameable_user_entity: Enabel\UserBundle\Entity\User
 
 services:

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Form;
+namespace Enabel\UserBundle\Form;
 
 use App\Entity\Enabel\User;
 use Symfony\Component\Form\AbstractType;
@@ -18,9 +18,9 @@ class UserProfile extends AbstractType
     /** @var array<string>  */
     private array $localeCodes;
 
-    public function __construct(string $locale)
+    public function __construct(string $locales)
     {
-        $localeCodes = explode('|', $locale);
+        $localeCodes = explode('|', $locales);
         sort($localeCodes);
         $this->localeCodes = $localeCodes;
     }
