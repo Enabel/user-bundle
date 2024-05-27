@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class UserProfile extends AbstractType
 {
     /** @var array<string>  */
-    private array $localeCodes;
+    //private array $localeCodes;
 
 //    public function __construct(string $locales)
 //    {
@@ -36,7 +36,7 @@ class UserProfile extends AbstractType
             ])
             ->add('locale', ChoiceType::class, [
                 'label' => 'label.language',
-                'choices' => $this->getLocales(),
+                'choices' => ['en' => 'en', 'fr' => 'fr'],
             ])
             ->add('email', TextType::class, [
                 'label' => 'label.email',
