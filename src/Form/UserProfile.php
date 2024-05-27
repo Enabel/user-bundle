@@ -43,7 +43,7 @@ class UserProfile extends AbstractType
                 'disabled' => true,
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'enabel_user.profile.btn.save',
+                'label' => 'enabel_user.profile.btn.submit',
             ])
         ;
     }
