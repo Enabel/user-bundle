@@ -77,3 +77,4 @@ services:
     tags: [ 'doctrine.repository_service' ]
 
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
+  Enabel\UserBundle\Service\Account\ChangePassword: ~
