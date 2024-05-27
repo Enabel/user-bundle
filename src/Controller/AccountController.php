@@ -33,7 +33,7 @@ class AccountController extends AbstractController
     #[Route('/profile', name: 'profile')]
     public function profile(): Response
     {
-        return $this->render('account/profile.html.twig');
+        return $this->render('@EnabelUser/account/profile.html.twig');
     }
 
     #[Route('/edit', name: 'edit')]
@@ -53,7 +53,7 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('account_profile', ['_locale' => $user->getLocale()]);
         }
 
-        return $this->render('account/edit.html.twig', [
+        return $this->render('@EnabelUser/account/edit.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -79,7 +79,7 @@ class AccountController extends AbstractController
             $this->addFlash('danger', 'flash.passwordChange.error');
         }
 
-        return $this->render('account/changePassword.html.twig', [
+        return $this->render('@EnabelUser/account/changePassword.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -110,7 +110,7 @@ class AccountController extends AbstractController
             }
         }
 
-        return $this->render('account/forgotPassword.html.twig');
+        return $this->render('@EnabelUser/account/forgotPassword.html.twig');
     }
 
     public function sendNewPassword(User $user, string $password): TemplatedEmail
