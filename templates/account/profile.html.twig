@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'title.profile'|trans }} - {{ parent() }}{% endblock %}
+{% block title %}{{ 'enabel_user.profile.title.profile'|trans }} - {{ parent() }}{% endblock %}
 
 {% block body %}
     <div class="main-header">
-        <h2 class="main-title">{{ 'title.profile'|trans }}</h2>
+        <h2 class="main-title">{{ 'enabel_user.profile.title.profile'|trans }}</h2>
     </div>
 
     <div class="card mb-3">
         <div class="card-header d-flex justify-content-between">
             <h5><i class="fas fa-user"></i> {{ 'label.personalInformations'|trans }}</h5>
-            <a href="{{ path('account_edit') }}" class="btn btn-sm btn-outline-primary text-end"><i class="fas fa-user-edit"></i> {{ 'btn.edit'|trans }}</a>
+            <a href="{{ path('account_edit') }}" class="btn btn-sm btn-outline-primary text-end"><i class="fas fa-user-edit"></i>
+                {{ 'enabel_user.profile.btn.edit'|trans }}
+            </a>
         </div>
         <div class="card-body">
             <table class="table table-sm">
@@ -20,16 +22,16 @@
                 </tr>
                 {% if app.user.jobTitle is not null %}
                     <tr>
-                        <th>{{ 'label.jobTitle'|trans }}</th>
+                        <th>{{ 'enabel_user.profile.label.jobTitle'|trans }}</th>
                         <td>{{ app.user.jobTitle }}</td>
                     </tr>
                 {% endif %}
                 <tr>
-                    <th>{{ 'label.email'|trans }}</th>
+                    <th>{{ 'enabel_user.profile.label.email'|trans }}</th>
                     <td>{{ app.user.email }}</td>
                 </tr>
                 <tr>
-                    <th>{{ 'label.language'|trans }}</th>
+                    <th>{{ 'enabel_user.profile.label.language'|trans }}</th>
                     <td>{{ app.user.locale|language_name }}</td>
                 </tr>
             </table>
@@ -49,30 +51,30 @@
         <div class="card-body">
             <table class="table table-sm">
                 <tr>
-                    <th>{{ 'label.id'|trans }}</th>
+                    <th>{{ 'enabel_user.profile.label.id'|trans }}</th>
                     <td>{{ app.user.id }}</td>
                 </tr>
                 <tr>
-                    <th>{{ 'label.roles'|trans }}</th>
+                    <th>{{ 'enabel_user.profile.label.roles'|trans }}</th>
                     <td>
                         {{ component('user-role', {status: app.user.roles.0}) }}
                     </td>
                 </tr>
                 <tr>
-                    <th>{{ 'label.lastLoginAt'|trans }}</th>
+                    <th>{{ 'enabel_user.profile.label.lastLoginAt'|trans }}</th>
                     <td>
                         {% if app.user.lastLoginAt is empty %}
-                        {{ 'label.never'|trans }}
+                        {{ 'enabel_user.profile.label.never'|trans }}
                         {% else %}
                         {{ app.user.lastLoginAt|format_datetime('full', 'short', locale=app.request.locale) }}
                         {% endif %}
                     </td>
                 </tr>
                 <tr>
-                    <th>{{ 'label.createdAt'|trans }}</th>
+                    <th>{{ 'enabel_user.profile.label.createdAt'|trans }}</th>
                     <td>
                         {% if app.user.createdAt is empty %}
-                            {{ 'label.never'|trans }}
+                            {{ 'enabel_user.profile.label.never'|trans }}
                         {% else %}
                         {{ app.user.createdAt|format_datetime('full', 'short', locale=app.request.locale) }}
                         {% endif %}
@@ -82,7 +84,7 @@
                     <th>{{ 'label.updatedAt'|trans }}</th>
                     <td>
                         {% if app.user.updatedAt is empty %}
-                            {{ 'label.never'|trans }}
+                            {{ 'enabel_user.profile.label.never'|trans }}
                         {% else %}
                             {{ app.user.updatedAt|format_datetime('full', 'short', locale=app.request.locale) }}
                         {% endif %}

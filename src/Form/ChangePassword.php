@@ -20,7 +20,7 @@ class ChangePassword extends AbstractType
     {
         $builder
             ->add('old-password', PasswordType::class, [
-                'label' => 'label.oldPassword',
+                'label' => 'enabel_user.profile.label.oldPassword',
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -31,7 +31,7 @@ class ChangePassword extends AbstractType
                 'second_options' => ['label' => 'label.passwordRepeat'],
             ])
             ->add('changePassword', SubmitType::class, [
-                'label' => 'btn.changePassword',
+                'label' => 'enabel_user.profile.btn.changePassword',
             ])
         ;
     }

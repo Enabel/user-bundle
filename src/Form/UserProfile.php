@@ -32,18 +32,18 @@ class UserProfile extends AbstractType
     {
         $builder
             ->add('displayName', TextType::class, [
-                'label' => 'label.fullName',
+                'label' => 'enabel_user.profile.label.fullName',
             ])
             ->add('locale', ChoiceType::class, [
-                'label' => 'label.language',
+                'label' => 'enabel_user.profile.label.language',
                 'choices' => ['en' => 'en', 'fr' => 'fr'],
             ])
             ->add('email', TextType::class, [
-                'label' => 'label.email',
+                'label' => 'enabel_user.profile.label.email',
                 'disabled' => true,
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'btn.save',
+                'label' => 'enabel_user.profile.btn.save',
             ])
         ;
     }
