@@ -51,3 +51,27 @@ enabel_user:
             new_user: 'Ajouter un utilisateur'
             user: Utilisateur
             users: Utilisateurs
+    profile:
+        title: 'Profil et sécurité'
+        edit: 'Modifier le profil'
+        menu:
+            title: 'Mon profil'
+        btn:
+            edit: Modifier
+            submit: Enregistrer
+        label:
+            id: '#'
+            displayName: 'Nom complet'
+            jobTitle: 'Poste'
+            language: Language
+            password: 'Mot de passe'
+            password.old: 'Ancien mot de passe'
+            password.change: 'Modifier le mot de passe'
+            password.repeat: 'Répéter le mot de passe'
+            roles: Rôles
+            lastLoginAt: 'Dernière connexion'
+            never: Jamais
+            deletedAt: 'Supprimé le'
+            updatedAt: 'Modifié le'
+            accountInformation: 'Informations sur le compte'
+            personalInformation: 'Informations personnelles'
