@@ -75,3 +75,5 @@ services:
       - '@Doctrine\Persistence\ManagerRegistry'
       - '%enabel_user.user_class%'
     tags: [ 'doctrine.repository_service' ]
+
+  Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
