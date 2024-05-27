@@ -40,7 +40,7 @@
 
     <div class="card mb-3">
         <div class="card-header d-flex justify-content-between">
-            <h5><i class="fas fa-id-badge"></i> {{ 'enabel_user.profile.label.accountInformations'|trans }}</h5>
+            <h5><i class="fas fa-id-badge"></i> {{ 'enabel_user.profile.label.accountInformation'|trans }}</h5>
             {% if app.user.email ends with '@enabel.be' %}
             {% else %}
                 <a href="{{ path('account_change_password') }}" class="btn btn-sm btn-outline-danger text-end">
@@ -81,7 +81,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>{{ 'label.updatedAt'|trans }}</th>
+                    <th>{{ 'enabel_user.profile.label.updatedAt'|trans }}</th>
                     <td>
                         {% if app.user.updatedAt is empty %}
                             {{ 'enabel_user.profile.label.never'|trans }}
