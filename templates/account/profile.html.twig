@@ -44,7 +44,7 @@
             {% if app.user.email ends with '@enabel.be' %}
             {% else %}
                 <a href="{{ path('account_change_password') }}" class="btn btn-sm btn-outline-danger text-end">
-                    <i class="fas fa-key"></i> {{ 'btn.changePassword'|trans }}
+                    <i class="fas fa-key"></i> {{ 'enabel_user.profile.btn.changePassword'|trans }}
                 </a>
             {% endif %}
         </div>

@@ -69,6 +69,7 @@ enabel_user:
             language: Language
             password: 'Mot de passe'
             password.old: 'Ancien mot de passe'
+            password.new: 'Novueau mot de passe'
             password.change: 'Modifier le mot de passe'
             password.repeat: 'Répéter le mot de passe'
             roles: Rôles
