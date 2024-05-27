@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Form;
+namespace Enabel\UserBundle\Form;
 
 use App\Entity\Enabel\User;
 use Symfony\Component\Form\AbstractType;
