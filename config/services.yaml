@@ -48,7 +48,7 @@ services:
 
   enabel_user.validator:
     alias: Enabel\UserBundle\Utils\Validator
-      
+
   enabel_user.local_authenticator:
     class: Enabel\UserBundle\Security\LocalAuthenticator
     arguments:

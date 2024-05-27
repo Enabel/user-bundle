@@ -1,3 +1,6 @@
+ROLE_SUPER_ADMIN': 'Super Administrateur'
+ROLE_ADMIN': 'Administrateur'
+ROLE_USER': 'Utilisateur'
 enabel_user:
     login:
         title: 'Se connecter'
