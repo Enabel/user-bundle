@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Enabel\UserBundle\Service\Account;
 
-use App\Entity\Enabel\User;
-use App\Repository\Enabel\UserRepository;
+use Enabel\UserBundle\Entity\User;
+use Enabel\UserBundle\Repository\UserRepository;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ChangePassword
