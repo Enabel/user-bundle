@@ -4,6 +4,6 @@ enabel_user:
 
 forgot_password:
   path: /forgot_password
-  controller: App\Controller\AccountController::forgotPassword
+  controller: Enabel\UserBundle\Controller\AccountController::forgotPassword
   defaults:
     _locale: '%locale%'
