@@ -18,7 +18,7 @@ class UserProfile extends AbstractType
     /** @var array<string>  */
     private array $localeCodes;
 
-    public function __construct(string $locales)
+//    public function __construct(string $locales)
 //    {
 //        $localeCodes = explode('|', $locales);
 //        sort($localeCodes);
