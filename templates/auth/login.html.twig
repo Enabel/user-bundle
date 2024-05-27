@@ -62,6 +62,11 @@
 
                                                 <!-- csrf & submit -->
                                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                                                <!-- forgotten password -->
+                                                <div class="mb-3">
+                                                    <a href="{{ path('forgot_password') }}" class="forgotPasswordEmail">I forgot my password</a>
+                                                </div>
                                                 <button class="btn btn-lg btn-block btn-primary" type="submit">{{ 'enabel_user.login.btn.submit'|trans }}</button>
                                             </form>
                                         </div>
