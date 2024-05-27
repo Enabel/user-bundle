@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace Enabel\UserBundle\Controller;
 
-use App\Entity\Enabel\User;
-use App\Form\ChangePassword;
-use App\Form\UserProfile;
-use App\Repository\Enabel\UserRepository;
-use App\Service\Account\ChangePassword as AccountChangePassword;
+use Enabel\UserBundle\Entity\Enabel\User;
+use Enabel\UserBundle\Form\ChangePassword;
+use Enabel\UserBundle\Form\UserProfile;
+use Enabel\UserBundle\Repository\Enabel\UserRepository;
+use Enabel\UserBundle\Service\Account\ChangePassword as AccountChangePassword;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
