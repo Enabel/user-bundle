@@ -19,11 +19,11 @@ class UserProfile extends AbstractType
     private array $localeCodes;
 
     public function __construct(string $locales)
-    {
-        $localeCodes = explode('|', $locales);
-        sort($localeCodes);
-        $this->localeCodes = $localeCodes;
-    }
+//    {
+//        $localeCodes = explode('|', $locales);
+//        sort($localeCodes);
+//        $this->localeCodes = $localeCodes;
+//    }
 
     /**
      * @param array<string, mixed> $options
