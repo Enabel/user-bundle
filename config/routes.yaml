@@ -1,3 +1,9 @@
 enabel_user:
   resource: "../src/Controller/"
   type: attribute
+
+forgot_password:
+  path: /forgot_password
+  controller: App\Controller\AccountController::forgotPassword
+  defaults:
+    _locale: '%locale%'
