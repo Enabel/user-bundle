@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Account;
+namespace Enabel\UserBundle\Service\Account;
 
 use App\Entity\Enabel\User;
 use App\Repository\Enabel\UserRepository;
