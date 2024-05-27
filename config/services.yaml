@@ -1,16 +1,10 @@
 parameters:
   locale: 'en'
   enabled_locales: [ 'en', 'fr' ]
-  app_locales: en|fr
+  localeCodes: en|fr
   doctrine_behaviors_blameable_user_entity: Enabel\UserBundle\Entity\User
 
 services:
-  _defaults:
-    autowire: true
-    autoconfigure: true
-    bind:
-      string $defaultLocale: '%locale%'
-      string $locales: '%app_locales%'
 
   Enabel\UserBundle\Controller\:
     resource: '../src/Controller'
