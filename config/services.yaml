@@ -76,5 +76,9 @@ services:
       - '%enabel_user.user_class%'
     tags: [ 'doctrine.repository_service' ]
 
+  Enabel\UserBundle\Service\Account\ChangePassword:
+    arguments:
+      - '@security.password_hasher'
+      - '@enabel_user.user_repository'
+
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
-  Enabel\UserBundle\Service\Account\ChangePassword: ~
