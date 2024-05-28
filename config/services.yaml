@@ -1,6 +1,7 @@
 parameters:
   locale: 'en'
   enabled_locales: [ 'en', 'fr' ]
+  app_locales: en|fr
   doctrine_behaviors_blameable_user_entity: Enabel\UserBundle\Entity\User
 
 services:
@@ -80,5 +81,9 @@ services:
     arguments:
       - '@security.password_hasher'
       - '@enabel_user.user_repository'
+
+    Enabel\UserBundle\Form\UserProfile:
+      arguments:
+        string $locales: '%app_locales%'
 
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'

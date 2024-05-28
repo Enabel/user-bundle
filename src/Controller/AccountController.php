@@ -19,7 +19,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/account', name: 'account_')]
+#[Route('/{_locale}/account', name: 'account_')]
 class AccountController extends AbstractController
 {
     private const LENGTH = 10;
