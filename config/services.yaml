@@ -6,6 +6,10 @@ parameters:
 
 services:
 
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
   Enabel\UserBundle\Controller\:
     resource: '../src/Controller'
     autowire: true

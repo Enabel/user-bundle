@@ -10,7 +10,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 /**
  * @codeCoverageIgnore
  */
-#[AsTwigComponent(template: '@EnabelUser/components/user-role.html.twig', name: 'user-role')]
+#[AsTwigComponent(template: '@EnabelUser/templates/components/user-role.html.twig', name: 'user-role')]
 class RoleComponent extends BaseStatusComponent
 {
     private TranslatorInterface $translator;
