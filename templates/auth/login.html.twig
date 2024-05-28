@@ -56,19 +56,19 @@
                                                 </div>
 
                                                 <!-- RememberMe -->
-                                                <div class="form-check d-flex justify-content-start mb-4">
-                                                    <input type="checkbox" name="_remember_me" id="inputRememberMe" class="form-check-input"/>
-                                                    <label class="form-check-label" for="inputRememberMe">&nbsp;{{ 'enabel_user.login.form.remember_me'|trans }}</label>
-                                                </div>
+{#                                                <div class="form-check d-flex justify-content-start mb-4">#}
+{#                                                    <input type="checkbox" name="_remember_me" id="inputRememberMe" class="form-check-input"/>#}
+{#                                                    <label class="form-check-label" for="inputRememberMe">&nbsp;{{ 'enabel_user.login.form.remember_me'|trans }}</label>#}
+{#                                                </div>#}
 
                                                 <!-- csrf & submit -->
                                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                                                 <!-- forgotten password -->
                                                 <div class="mb-3">
-                                                    <a href="{{ path('forgot_password') }}" class="forgotPasswordEmail">I forgot my password</a>
+                                                    <a href="{{ path('forgot_password') }}" class="forgotPasswordEmail">{{ 'enabel_user.login.btn.submit'|trans }}</a>
                                                 </div>
-                                                <button class="btn btn-lg btn-block btn-primary" type="submit">{{ 'enabel_user.login.btn.submit'|trans }}</button>
+                                                <button class="btn btn-lg btn-block btn-primary" type="submit">{{ 'enabel_user.profile.label.password.forgot'|trans }}</button>
                                             </form>
                                         </div>
                                     </div>

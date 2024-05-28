@@ -73,6 +73,7 @@ enabel_user:
             password.new: 'Nouveau mot de passe'
             password.change: 'Modifier le mot de passe'
             password.repeat: 'Répéter le mot de passe'
+            password.forgot: 'Mot de passe oublié'
             roles: Rôles
             lastLoginAt: 'Dernière connexion'
             never: Jamais

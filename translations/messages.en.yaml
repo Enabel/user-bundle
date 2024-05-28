@@ -74,6 +74,7 @@ enabel_user:
             password.new: 'New password'
             password.change: 'Change password'
             password.repeat: 'Repeat password'
+            password.forgot: 'Forgot password?'
             roles: Roles
             lastLoginAt: 'Last login at'
             never: Never
