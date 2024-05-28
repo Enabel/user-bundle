@@ -1,3 +1,6 @@
+ROLE_SUPER_ADMIN: 'Super Administrator'
+ROLE_ADMIN: 'Administrator'
+ROLE_USER: 'User'
 enabel_user:
     login:
         title: 'Sign in'
@@ -51,3 +54,31 @@ enabel_user:
             new_user: 'Add a user'
             user: User
             users: Users
+    profile:
+        title: 'Profile and security'
+        edit: 'Edit profile'
+        menu:
+            title: 'My profile'
+        btn:
+            edit: Edit
+            submit: Save
+            changePassword: 'Change password'
+        label:
+            id: '#'
+            displayName: 'Full name'
+            email: Email
+            jobTitle: 'Job title'
+            language: Language
+            password: Password
+            password.old: 'Old password'
+            password.new: 'New password'
+            password.change: 'Change password'
+            password.repeat: 'Repeat password'
+            password.forgot: 'Forgot password?'
+            roles: Roles
+            lastLoginAt: 'Last login at'
+            never: Never
+            createdAt: 'Created at'
+            updatedAt: 'Updated at'
+            accountInformation: 'Account information'
+            personalInformation: 'Personal information'

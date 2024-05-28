@@ -1,9 +1,14 @@
 parameters:
   locale: 'en'
   enabled_locales: [ 'en', 'fr' ]
+  app_locales: en|fr
   doctrine_behaviors_blameable_user_entity: Enabel\UserBundle\Entity\User
 
 services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
 
   Enabel\UserBundle\Controller\:
     resource: '../src/Controller'
@@ -48,7 +53,7 @@ services:
 
   enabel_user.validator:
     alias: Enabel\UserBundle\Utils\Validator
-      
+
   enabel_user.local_authenticator:
     class: Enabel\UserBundle\Security\LocalAuthenticator
     arguments:
@@ -63,7 +68,6 @@ services:
       - '@Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface'
       - '@enabel_user.user_repository'
 
-
   enabel_user.provider:
     class: Enabel\UserBundle\Security\UserProvider
     arguments:
@@ -75,3 +79,19 @@ services:
       - '@Doctrine\Persistence\ManagerRegistry'
       - '%enabel_user.user_class%'
     tags: [ 'doctrine.repository_service' ]
+
+  Enabel\UserBundle\Service\Account\ChangePassword:
+    arguments:
+      - '@security.password_hasher'
+      - '@enabel_user.user_repository'
+
+  Enabel\UserBundle\Form\UserProfile:
+    arguments:
+      $locales: '%app_locales%'
+
+  Enabel\UserBundle\Components\RoleComponent:
+    autowire: true
+    tags:
+      - { name: 'twig.component', key: 'user-role' }
+
+  Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'

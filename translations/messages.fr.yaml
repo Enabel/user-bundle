@@ -1,3 +1,6 @@
+ROLE_SUPER_ADMIN: 'Super Administrateur'
+ROLE_ADMIN: 'Administrateur'
+ROLE_USER: 'Utilisateur'
 enabel_user:
     login:
         title: 'Se connecter'
@@ -51,3 +54,31 @@ enabel_user:
             new_user: 'Ajouter un utilisateur'
             user: Utilisateur
             users: Utilisateurs
+    profile:
+        title: 'Profil et sécurité'
+        edit: 'Modifier le profil'
+        menu:
+            title: 'Mon profil'
+        btn:
+            edit: Modifier
+            submit: Enregistrer
+            changePassword: 'Modifier votre mot de passe'
+        label:
+            id: '#'
+            displayName: 'Nom complet'
+            jobTitle: 'Poste'
+            language: Langue
+            password: 'Mot de passe'
+            password.old: 'Ancien mot de passe'
+            password.new: 'Nouveau mot de passe'
+            password.change: 'Modifier le mot de passe'
+            password.repeat: 'Répéter le mot de passe'
+            password.forgot: 'Mot de passe oublié'
+            roles: Rôles
+            lastLoginAt: 'Dernière connexion'
+            never: Jamais
+            deletedAt: 'Supprimé le'
+            createdAt: 'Crée le'
+            updatedAt: 'Modifié le'
+            accountInformation: 'Informations sur le compte'
+            personalInformation: 'Informations personnelles'

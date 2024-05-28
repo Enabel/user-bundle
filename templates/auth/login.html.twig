@@ -42,26 +42,32 @@
                                         </div>
                                         <div class="modal-body">
                                             <form method="post">
+
                                                 <!-- Username -->
-                                                <div class="form-outline mb-4">
-                                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-lg" autocomplete="email" required autofocus>
-                                                    <label class="form-label" for="inputEmail">{{ 'enabel_user.login.form.email'|trans }}</label>
+                                                <div class="form-floating mb-3">
+                                                    <input type="email" value="{{ last_username }}" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                    <label for="floatingInput">{{ 'enabel_user.login.form.email'|trans }}</label>
                                                 </div>
 
                                                 <!-- Password -->
-                                                <div class="form-outline mb-4">
-                                                    <input type="password" name="password" id="inputPassword" class="form-control form-control-lg" autocomplete="current-password" required>
-                                                    <label class="form-label" for="inputPassword">{{ 'enabel_user.login.form.password'|trans }}</label>
+                                                <div class="form-floating mb-3">
+                                                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                                                    <label for="floatingPassword">{{ 'enabel_user.login.form.password'|trans }}</label>
                                                 </div>
 
                                                 <!-- RememberMe -->
-                                                <div class="form-check d-flex justify-content-start mb-4">
-                                                    <input type="checkbox" name="_remember_me" id="inputRememberMe" class="form-check-input"/>
-                                                    <label class="form-check-label" for="inputRememberMe">&nbsp;{{ 'enabel_user.login.form.remember_me'|trans }}</label>
-                                                </div>
+{#                                                <div class="form-check d-flex justify-content-start mb-4">#}
+{#                                                    <input type="checkbox" name="_remember_me" id="inputRememberMe" class="form-check-input"/>#}
+{#                                                    <label class="form-check-label" for="inputRememberMe">&nbsp;{{ 'enabel_user.login.form.remember_me'|trans }}</label>#}
+{#                                                </div>#}
 
                                                 <!-- csrf & submit -->
                                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                                                <!-- forgotten password -->
+                                                <div class="mb-3">
+                                                    <a href="{{ path('forgot_password') }}" class="forgotPasswordEmail">{{ 'enabel_user.profile.label.password.forgot'|trans }}</a>
+                                                </div>
                                                 <button class="btn btn-lg btn-block btn-primary" type="submit">{{ 'enabel_user.login.btn.submit'|trans }}</button>
                                             </form>
                                         </div>
