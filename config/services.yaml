@@ -64,7 +64,6 @@ services:
       - '@Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface'
       - '@enabel_user.user_repository'
 
-
   enabel_user.provider:
     class: Enabel\UserBundle\Security\UserProvider
     arguments:
