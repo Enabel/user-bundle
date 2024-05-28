@@ -87,6 +87,5 @@ services:
 
   Enabel\UserBundle\Components\User\RoleComponent:
     tags: ['twig.component']
-    path: '../src/Components/User/RoleComponent.php'
 
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
