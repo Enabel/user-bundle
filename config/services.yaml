@@ -82,8 +82,8 @@ services:
       - '@security.password_hasher'
       - '@enabel_user.user_repository'
 
-    Enabel\UserBundle\Form\UserProfile:
-      arguments:
-        string $locales: '%app_locales%'
+  Enabel\UserBundle\Form\UserProfile:
+    arguments:
+      string $locales: '%app_locales%'
 
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
