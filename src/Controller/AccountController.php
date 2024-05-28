@@ -121,7 +121,7 @@ class AccountController extends AbstractController
         $email = (new TemplatedEmail())
             ->to($address)
             ->subject('[Enabel] New password request')
-            ->htmlTemplate('emails/new.password.html.twig')
+            ->htmlTemplate('@EnabelUser/emails/new.password.html.twig')
             ->context([
                 'user' => $user,
                 'password' => $password,
