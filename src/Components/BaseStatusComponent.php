@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enabel\UserBundle\Components\User;
+namespace Enabel\UserBundle\Components;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;

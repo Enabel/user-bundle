@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enabel\UserBundle\Components\User;
+namespace Enabel\UserBundle\Components;
 
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
