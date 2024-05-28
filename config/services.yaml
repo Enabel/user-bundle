@@ -85,7 +85,7 @@ services:
     arguments:
       $locales: '%app_locales%'
 
-  Enabel\UserBundle\Components\User\RoleComponent:
+  Enabel\UserBundle\Components\RoleComponent:
     autowire: true
     tags:
       - { name: 'twig.component', key: 'user-role' }
