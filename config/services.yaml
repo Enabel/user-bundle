@@ -84,6 +84,6 @@ services:
 
   Enabel\UserBundle\Form\UserProfile:
     arguments:
-      string $locales: '%app_locales%'
+      $locales: '%app_locales%'
 
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
