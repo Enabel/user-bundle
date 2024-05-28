@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enabel\UserBundle\Form;
 
-use App\Entity\Enabel\User;
+use Enabel\UserBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,14 +16,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class UserProfile extends AbstractType
 {
     /** @var array<string>  */
-    //private array $localeCodes;
+    private array $localeCodes;
 
-//    public function __construct(string $locales)
-//    {
-//        $localeCodes = explode('|', $locales);
-//        sort($localeCodes);
-//        $this->localeCodes = $localeCodes;
-//    }
+    public function __construct(string $locales)
+    {
+        $localeCodes = explode('|', $locales);
+        sort($localeCodes);
+        $this->localeCodes = $localeCodes;
+    }
 
     /**
      * @param array<string, mixed> $options
@@ -36,7 +36,7 @@ class UserProfile extends AbstractType
             ])
             ->add('locale', ChoiceType::class, [
                 'label' => 'enabel_user.profile.label.language',
-                'choices' => ['en' => 'en', 'fr' => 'fr'],
+                'choices' => $this->getLocales(),
             ])
             ->add('email', TextType::class, [
                 'label' => 'enabel_user.profile.label.email',
