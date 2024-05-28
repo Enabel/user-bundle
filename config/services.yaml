@@ -86,6 +86,8 @@ services:
       $locales: '%app_locales%'
 
   Enabel\UserBundle\Components\User\RoleComponent:
-    tags: ['twig.component']
+    autowire: true
+    tags:
+      - { name: 'twig.component', key: 'user-role' }
 
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
