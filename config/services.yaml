@@ -85,4 +85,7 @@ services:
     arguments:
       $locales: '%app_locales%'
 
+  Enabel\UserBundle\Components\User\RoleComponent:
+    tags: ['twig.component']
+
   Enabel\UserBundle\Repository\UserRepository: '@enabel_user.user_repository'
