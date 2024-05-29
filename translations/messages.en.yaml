@@ -1,6 +1,6 @@
-ROLE_SUPER_ADMIN: 'Super Administrator'
-ROLE_ADMIN: 'Administrator'
-ROLE_USER: 'User'
+ROLE_SUPER_ADMIN: 'SUPER ADMIN'
+ROLE_ADMIN: 'ADMIN'
+ROLE_USER: 'USER'
 enabel_user:
     login:
         title: 'Sign in'
