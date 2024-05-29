@@ -98,7 +98,8 @@ class AccountController extends AbstractController
             $email = $request->request->get('forgotPasswordEmail', '');
             $user = $userRepository->findOneBy(['email' => $email]);
 
-            if ($user) {
+            /** @var User $user */
+            if ($user !== null) {
                 $password = $this->generatePassword();
                 $user->setPassword($passwordHasher->hashPassword($user, $password));
                 $entityManager->persist($user);
