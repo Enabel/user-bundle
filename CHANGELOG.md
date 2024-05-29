@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.1](https://github.com/enabel/user-bundle/tree/2.1.1) (2024-05-29)
+
+[Full Changelog](https://github.com/enabel/user-bundle/compare/2.1.0...2.1.1)
+
+**Merged pull requests:**
+
+- Fix php-stan issues [\#4](https://github.com/Enabel/user-bundle/pull/4) ([falcohb](https://github.com/falcohb))
+
+## [2.1.0](https://github.com/enabel/user-bundle/tree/2.1.0) (2024-05-28)
+
+[Full Changelog](https://github.com/enabel/user-bundle/compare/2.0.0...2.1.0)
+
+**Merged pull requests:**
+
+- Add profile & external management  [\#3](https://github.com/Enabel/user-bundle/pull/3) ([falcohb](https://github.com/falcohb))
+
 ## [2.0.0](https://github.com/enabel/user-bundle/tree/2.0.0) (2024-05-23)
 
 [Full Changelog](https://github.com/enabel/user-bundle/compare/1.0.11...2.0.0)
