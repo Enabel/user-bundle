@@ -16,6 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Artifact (with permissions)
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}
+          key: artifacts-${{ github.run_id }}-${{ github.run_number }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -30,14 +36,7 @@ jobs:
 
       - name: Cleanup build
         run: |
-          rm -Rf .git/
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: ${{ github.workspace }}
-          compression-level: 9
+          rm -Rf .git/      
 
   security:
     needs: build
@@ -47,18 +46,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Artifact (with permissions)
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}
+          key: artifacts-${{ github.run_id }}-${{ github.run_number }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
           tools: symfony
           extensions: gd,json,iconv,intl,mbstring,pdo,pdo_mysql,xml,zip,curl,apcu
-
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: .
 
       - name: Security checker
         run: symfony check:security
@@ -71,18 +70,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Artifact (with permissions)
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}
+          key: artifacts-${{ github.run_id }}-${{ github.run_number }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
           tools: symfony
           extensions: gd,json,iconv,intl,mbstring,pdo,pdo_mysql,xml,zip,curl,apcu
-
-      - name: Download package
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: .
 
       - name: Run php_codesniffer with PSR12 standard
         run: composer cs
@@ -101,6 +100,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Artifact (with permissions)
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}
+          key: artifacts-${{ github.run_id }}-${{ github.run_number }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -108,12 +113,6 @@ jobs:
           tools: symfony
           extensions: gd,json,iconv,intl,mbstring,pdo,pdo_mysql,xml,zip,curl,apcu
           coverage: xdebug
-
-      - name: Download package
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: .
 
       - name: All Tests (unit & functional)
         run: composer test
@@ -124,12 +123,3 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
           directory: coverage
-
-  Cleanup:
-    needs: [build, security, coding-standards, tests]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clean up artifacts
-        uses: geekyeggo/delete-artifact@v4
-        with:
-          name: build
