@@ -51,16 +51,6 @@
         <div class="card-body">
             <table class="table table-sm">
                 <tr>
-                    <th>{{ 'enabel_user.profile.label.id'|trans }}</th>
-                    <td>{{ app.user.id }}</td>
-                </tr>
-                <tr>
-                    <th>{{ 'enabel_user.profile.label.roles'|trans }}</th>
-                    <td>
-                        {{ component('user-role', {status: app.user.roles.0}) }}
-                    </td>
-                </tr>
-                <tr>
                     <th>{{ 'enabel_user.profile.label.lastLoginAt'|trans }}</th>
                     <td>
                         {% if app.user.lastLoginAt is empty %}
