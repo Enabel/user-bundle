@@ -82,7 +82,7 @@ class DemoteCommand extends Command
             'If you prefer to not use this interactive wizard, provide the',
             'arguments required by this command as follows:',
             '',
-            ' $ php bin/console ' . self::$defaultName . ' email@example.com',
+            ' $ php bin/console ' . self::getDefaultName() . ' email@example.com',
             '',
             'Now we\'ll ask you for the value of all the missing command arguments.',
         ]);

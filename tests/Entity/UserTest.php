@@ -62,9 +62,9 @@ class UserTest extends TestCase
      *     roles: array<string>,
      *     lastLoginAt: DateTime,
      *     createdAt: DateTime,
-     *     createdBy: int,
+     *     createdBy: string,
      *     updatedAt: DateTime,
-     *     updatedBy: int,
+     *     updatedBy: string,
      *     deletedAt: DateTime
      * } $data
      */
@@ -101,9 +101,9 @@ class UserTest extends TestCase
      *     roles: array<string>,
      *     lastLoginAt: DateTime,
      *     createdAt: DateTime,
-     *     createdBy: int,
+     *     createdBy: string,
      *     updatedAt: DateTime,
-     *     updatedBy: int,
+     *     updatedBy: string,
      *     deletedAt: DateTime
      * }
      */
@@ -118,9 +118,9 @@ class UserTest extends TestCase
             'roles' => ['ROLE_USER', 'ROLE_ADMIN'],
             'lastLoginAt' => new \DateTime('now'),
             'createdAt' => new \DateTime('yesterday'),
-            'createdBy' => 1,
+            'createdBy' => 'user@email.com',
             'updatedAt' => new \DateTime('now'),
-            'updatedBy' => 2,
+            'updatedBy' => 'user@email.com',
             'deletedAt' => new \DateTime('now'),
         ];
     }

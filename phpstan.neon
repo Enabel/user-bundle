@@ -3,9 +3,12 @@ includes:
   - vendor/phpstan/phpstan-phpunit/rules.neon
 parameters:
     level: 8
-    checkGenericClassInNonGenericObjectType: false
     paths:
         - src
         - tests
     parallel:
         maximumNumberOfProcesses: 4
+    ignoreErrors:
+            -
+                identifier: missingType.generics
+                reportUnmatched: false

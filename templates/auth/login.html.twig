@@ -55,12 +55,6 @@
                                                     <label for="floatingPassword">{{ 'enabel_user.login.form.password'|trans }}</label>
                                                 </div>
 
-                                                <!-- RememberMe -->
-{#                                                <div class="form-check d-flex justify-content-start mb-4">#}
-{#                                                    <input type="checkbox" name="_remember_me" id="inputRememberMe" class="form-check-input"/>#}
-{#                                                    <label class="form-check-label" for="inputRememberMe">&nbsp;{{ 'enabel_user.login.form.remember_me'|trans }}</label>#}
-{#                                                </div>#}
-
                                                 <!-- csrf & submit -->
                                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 

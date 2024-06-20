@@ -6,12 +6,9 @@ namespace Enabel\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Enabel\UserBundle\Repository\UserRepository;
-use Knp\DoctrineBehaviors\Contract\Entity\BlameableInterface;
-use Knp\DoctrineBehaviors\Contract\Entity\SoftDeletableInterface;
-use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
-use Knp\DoctrineBehaviors\Model\Blameable\BlameableTrait;
-use Knp\DoctrineBehaviors\Model\SoftDeletable\SoftDeletableTrait;
-use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -21,14 +18,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Table(options: ['comment' => 'Table of users'])]
 class User implements
     UserInterface,
-    PasswordAuthenticatedUserInterface,
-    BlameableInterface,
-    TimestampableInterface,
-    SoftDeletableInterface
+    PasswordAuthenticatedUserInterface
 {
-    use BlameableTrait;
-    use TimestampableTrait;
-    use SoftDeletableTrait;
+    use TimestampableEntity;
+    use BlameableEntity;
+    use SoftDeleteableEntity;
 
     public const DEFAULT_LOCALE = 'en';
 
@@ -273,5 +267,10 @@ class User implements
             $this->getRoles(),
             $this->getPassword(),
         ]);
+    }
+
+    public function restore(): void
+    {
+        $this->setDeletedAt(null);
     }
 }

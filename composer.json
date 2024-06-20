@@ -15,8 +15,8 @@
         "easycorp/easyadmin-bundle": "^4.5",
         "enabel/layout-bundle": "^1.0",
         "firebase/php-jwt": "<6.6",
-        "knplabs/doctrine-behaviors": "^2.6",
         "knpuniversity/oauth2-client-bundle": "^2.11",
+        "stof/doctrine-extensions-bundle": "^1.11",
         "symfony/config": "^6.0|^7.0",
         "symfony/dependency-injection": "^6.0|^7.0",
         "symfony/framework-bundle": "^6.0|^7.0",
@@ -52,8 +52,8 @@
         }
     },
     "scripts": {
-        "cs": "vendor/bin/phpcs --standard=PSR12 --parallel=4 --ignore=vendor .",
-        "cs-fix": "vendor/bin/phpcbf --standard=PSR12 --parallel=4 --ignore=vendor .",
+        "cs": "vendor/bin/phpcs --standard=PSR12 --parallel=4 --ignore=vendor,coverage .",
+        "cs-fix": "vendor/bin/phpcbf --standard=PSR12 --parallel=4 --ignore=vendor,coverage .",
         "fix": [
             "@cs-fix",
             "@insight-fix"
