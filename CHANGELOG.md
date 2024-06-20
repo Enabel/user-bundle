@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.0](https://github.com/enabel/user-bundle/tree/3.0.0) (2024-06-20)
+
+[Full Changelog](https://github.com/enabel/user-bundle/compare/2.1.3...3.0.0)
+
+**Merged pull requests:**
+
+- ⬆️ Move to StofDoctrine [\#5](https://github.com/Enabel/user-bundle/pull/5) ([damienlagae](https://github.com/damienlagae))
+
 ## [2.1.3](https://github.com/enabel/user-bundle/tree/2.1.3) (2024-06-06)
 
 [Full Changelog](https://github.com/enabel/user-bundle/compare/2.1.2...2.1.3)
