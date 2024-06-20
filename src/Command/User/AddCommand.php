@@ -95,7 +95,7 @@ class AddCommand extends Command
             'If you prefer to not use this interactive wizard, provide the',
             'arguments required by this command as follows:',
             '',
-            ' $ php bin/console ' . self::$defaultName . ' email@example.com password display-name',
+            ' $ php bin/console ' . self::getDefaultName() . ' email@example.com password display-name',
             '',
             'Now we\'ll ask you for the value of all the missing command arguments.',
         ]);

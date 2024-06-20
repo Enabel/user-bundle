@@ -41,7 +41,7 @@ security:
                 name: ENABEL_REMEMBER_ME
                 lifetime: 31536000
                 path: /
-                remember_me_parameter: _remember_me
+                always_remember_me: true
             logout:
                 path: enabel_logout
                 target: enabel_login

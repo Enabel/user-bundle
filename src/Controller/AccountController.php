@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Enabel\UserBundle\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Enabel\UserBundle\Entity\User;
 use Enabel\UserBundle\Form\ChangePassword;
 use Enabel\UserBundle\Form\UserProfile;
 use Enabel\UserBundle\Repository\UserRepository;
 use Enabel\UserBundle\Service\Account\ChangePassword as AccountChangePassword;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -96,9 +96,9 @@ class AccountController extends AbstractController
         if ($request->request->get('forgotPasswordEmail', '')) {
             /** @var string $email */
             $email = $request->request->get('forgotPasswordEmail', '');
+            /** @var User $user */
             $user = $userRepository->findOneBy(['email' => $email]);
 
-            /** @var User $user */
             if ($user !== null) {
                 $password = $this->generatePassword();
                 $user->setPassword($passwordHasher->hashPassword($user, $password));

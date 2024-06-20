@@ -86,7 +86,10 @@ enabel_user:
   user_class: 'App\Entity\Enabel\User'
   user_repository: 'App\Repository\Enabel\UserRepository'
   available_locales: 'fr|en'
+```
 
+Create/Update a file `/config/packages/knpu_oauth2_client.yaml` with this content:
+```yaml
 knpu_oauth2_client:
   clients:
     azure_o365:
