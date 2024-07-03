@@ -13,7 +13,7 @@
         "php": "^8.1",
         "doctrine/migrations": "^3.7",
         "easycorp/easyadmin-bundle": "^4.5",
-        "enabel/layout-bundle": "^1.0",
+        "enabel/layout-bundle": "^1.0|^2.0",
         "firebase/php-jwt": "<6.6",
         "knpuniversity/oauth2-client-bundle": "^2.11",
         "stof/doctrine-extensions-bundle": "^1.11",
