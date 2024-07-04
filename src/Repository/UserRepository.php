@@ -63,7 +63,7 @@ abstract class UserRepository extends ServiceEntityRepository implements Passwor
         $params = [];
         $params['lastLoginAt'] = (new \DateTime())->format('Y-m-d H:i:s');
         $params['id'] = $user->getId();
-        $stmt = $this->_em->getConnection()->prepare($sql);
+        $stmt = $this->getEntityManager()->getConnection()->prepare($sql);
         $stmt->executeStatement($params);
     }
 
@@ -115,8 +115,8 @@ abstract class UserRepository extends ServiceEntityRepository implements Passwor
                 ->setDisplayName($displayName)
             ;
 
-            $this->_em->persist($user);
-            $this->_em->flush();
+            $this->getEntityManager()->persist($user);
+            $this->getEntityManager()->flush();
 
             return $user;
         }
