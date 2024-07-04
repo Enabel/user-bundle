@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.1](https://github.com/enabel/user-bundle/tree/3.1.1) (2024-07-04)
+
+[Full Changelog](https://github.com/enabel/user-bundle/compare/3.1.0...3.1.1)
+
+## [3.1.0](https://github.com/enabel/user-bundle/tree/3.1.0) (2024-07-03)
+
+[Full Changelog](https://github.com/enabel/user-bundle/compare/3.0.0...3.1.0)
+
+**Merged pull requests:**
+
+- Update composer.json [\#6](https://github.com/Enabel/user-bundle/pull/6) ([falcohb](https://github.com/falcohb))
+
 ## [3.0.0](https://github.com/enabel/user-bundle/tree/3.0.0) (2024-06-20)
 
 [Full Changelog](https://github.com/enabel/user-bundle/compare/2.1.3...3.0.0)
