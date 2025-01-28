@@ -290,8 +290,7 @@ abstract class UserCrudController extends AbstractCrudController
         /** @var string $referer */
         $referer = $context->getRequest()->headers->get('referer');
         if ($user) {
-            $referer .= $referer .
-                (parse_url($referer, PHP_URL_QUERY) ? '&' : '?') .
+            $referer .= (parse_url($referer, PHP_URL_QUERY) ? '&' : '?') .
                 '_switch_user=' .
                 $user->getUserIdentifier()
             ;
