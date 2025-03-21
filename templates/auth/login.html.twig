@@ -27,47 +27,48 @@
                                     {{ component('alert', {message: error.messageKey|trans(error.messageData, 'security'), alertType: 'error'}) }}
                                 {% endif %}
 
-                                <!-- Extra authenticator (social, sso, ...) -->
-                                <a href="{{ path('enabel_azure_login') }}" class="btn btn-lg btn-block btn-enabel-login" type="submit"> {{ 'enabel_user.login.btn.enabel'|trans }}</a>
-                                <!-- Internal authenticator -->
-                                <a href="#" class="btn btn-lg btn-block btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#externalLogin">{{ 'enabel_user.login.btn.external'|trans }}</a>
+                                {% block ssoLogin %}
+                                    <!-- Extra authenticator (social, sso, ...) -->
+                                    <a href="{{ path('enabel_azure_login') }}" class="btn btn-lg btn-block btn-enabel-login" type="submit"> {{ 'enabel_user.login.btn.enabel'|trans }}</a>
+                                {% endblock %}
+                                {% block externalLogin %}
+                                    <!-- External authenticator -->
+                                    <a href="#" class="btn btn-lg btn-block btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#externalLogin">{{ 'enabel_user.login.btn.external'|trans }}</a>
+                                {% endblock %}
                             </div>
-
-                            <div class="modal fade" id="externalLogin" tabindex="-1" aria-labelledby="externalLoginLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="externalLoginLabel"><h3 class="mb-3">{{ 'enabel_user.login.title.external'|trans }}</h3></h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form method="post">
-
-                                                <!-- Username -->
-                                                <div class="form-floating mb-3">
-                                                    <input type="email" value="{{ last_username }}" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                                    <label for="floatingInput">{{ 'enabel_user.login.form.email'|trans }}</label>
-                                                </div>
-
-                                                <!-- Password -->
-                                                <div class="form-floating mb-3">
-                                                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
-                                                    <label for="floatingPassword">{{ 'enabel_user.login.form.password'|trans }}</label>
-                                                </div>
-
-                                                <!-- csrf & submit -->
-                                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                                                <!-- forgotten password -->
-                                                <div class="mb-3">
-                                                    <a href="{{ path('forgot_password') }}" class="forgotPasswordEmail">{{ 'enabel_user.profile.label.password.forgot'|trans }}</a>
-                                                </div>
-                                                <button class="btn btn-lg btn-block btn-primary" type="submit">{{ 'enabel_user.login.btn.submit'|trans }}</button>
-                                            </form>
+                            {% block externalLoginModal %}
+                                <div class="modal fade" id="externalLogin" tabindex="-1" aria-labelledby="externalLoginLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="externalLoginLabel"><h3 class="mb-3">{{ 'enabel_user.login.title.external'|trans }}</h3></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post">
+                                                    <!-- Username -->
+                                                    <div class="form-floating mb-3">
+                                                        <input type="email" value="{{ last_username }}" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                        <label for="floatingInput">{{ 'enabel_user.login.form.email'|trans }}</label>
+                                                    </div>
+                                                    <!-- Password -->
+                                                    <div class="form-floating mb-3">
+                                                        <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                                                        <label for="floatingPassword">{{ 'enabel_user.login.form.password'|trans }}</label>
+                                                    </div>
+                                                    <!-- csrf & submit -->
+                                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                                    <!-- forgotten password -->
+                                                    <div class="mb-3">
+                                                        <a href="{{ path('forgot_password') }}" class="forgotPasswordEmail">{{ 'enabel_user.profile.label.password.forgot'|trans }}</a>
+                                                    </div>
+                                                    <button class="btn btn-lg btn-block btn-primary" type="submit">{{ 'enabel_user.login.btn.submit'|trans }}</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
