@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enabel\UserBundle\Controller\Admin\Filter;
+namespace Enabel\UserBundle\Filter;
 
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Filter\FilterInterface;
