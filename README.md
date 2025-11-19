@@ -5,6 +5,14 @@
 [![codecov](https://codecov.io/gh/Enabel/user-bundle/graph/badge.svg?token=cKRnx9kvSx)](https://codecov.io/gh/Enabel/user-bundle)
 [![CI](https://github.com/Enabel/user-bundle/actions/workflows/CI.yml/badge.svg)](https://github.com/Enabel/user-bundle/actions/workflows/CI.yml)
 
+> **⚠️ Deprecation Notice**
+>
+> This project is deprecated and no longer maintained.  
+> Implement OAuth2 directly using a maintained solution such as:
+> - OAuth2 Client Bundle: https://github.com/knpuniversity/oauth2-client-bundle
+> - HWIOAuthBundle: https://github.com/hwi/HWIOAuthBundle
+
+
 ## Introduction
 
 The bundle aims to help with user management, including:
