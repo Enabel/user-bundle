@@ -55,7 +55,7 @@ abstract class UserRepository extends ServiceEntityRepository implements Passwor
      * @throws \Doctrine\DBAL\Exception
      * @codeCoverageIgnore
      */
-    final public function setLastLogin(User $user): void
+    public function setLastLogin(User $user): void
     {
         // Don't use ORM to avoid wrong updated date
         $sql = 'UPDATE user set last_login_at = :lastLoginAt where id = :id';
@@ -70,7 +70,7 @@ abstract class UserRepository extends ServiceEntityRepository implements Passwor
     /**
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    final public function findOrCreateFromAzure(AzureResourceOwner $owner): User
+    public function findOrCreateFromAzure(AzureResourceOwner $owner): User
     {
         if ($owner->getUpn() !== null) {
             /** @var User|null $user */
