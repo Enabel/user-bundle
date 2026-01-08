@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Symfony User management" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>enabel/user-bundle</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installation";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> enabel/user-bundle
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-with-symfony-flex">Installation with Symfony Flex</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-database">Setup database</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-without-symfony-flex">Installation without Symfony Flex</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-download-the-bundle">Step 1: Download the Bundle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-enable-the-bundle">Step 2: Enable the Bundle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-import-routing-configuration">Step 3: Import routing configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-4-create-the-configuration">Step 4: Create the configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-5-create-entity-repository">Step 5: Create entity &amp; repository</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-6-create-the-admin-crud-controller">Step 6: Create the admin crud controller</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-7-setup-the-database">Step 7: Setup the database</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#easyadmin">Easyadmin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#command">Command</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="authentication/">Authentication</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="command/">Command</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="easyadmin/">EasyAdmin</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/Enabel/user-bundle/issues">Bug tracker</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">enabel/user-bundle</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Enabel/user-bundle/edit/main/docs/index.md">Edit on enabel/user-bundle</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installation">Installation</h1>
+<p>Make sure Composer is installed globally, as explained in the
+<a href="https://getcomposer.org/doc/00-intro.md">installation chapter</a>
+of the Composer documentation.</p>
+<h2 id="installation-with-symfony-flex">Installation with Symfony Flex</h2>
+<p>Add our recipes endpoint</p>
+<pre><code class="language-json">{
+  &quot;extra&quot;: {
+    &quot;symfony&quot;: {
+      &quot;endpoint&quot;: [
+        &quot;https://api.github.com/repos/Enabel/recipes/contents/index.json?ref=flex/main&quot;,        
+        &quot;flex://defaults&quot;
+      ],
+      &quot;allow-contrib&quot;: true
+    }
+  }
+}
+</code></pre>
+<p><strong>Don't forget to run <code>compose update</code> as you have just modified his configuration.</strong></p>
+<p>Install with composer</p>
+<pre><code class="language-bash">composer require enabel/user-bundle
+</code></pre>
+<h3 id="setup-database">Setup database</h3>
+<pre><code class="language-bash">bin/console make:migration
+bin/console doctrine:migration:migrate
+</code></pre>
+<h2 id="installation-without-symfony-flex">Installation without Symfony Flex</h2>
+<h3 id="step-1-download-the-bundle">Step 1: Download the Bundle</h3>
+<p>Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:</p>
+<pre><code class="language-bash">composer require enabel/user-bundle
+</code></pre>
+<h3 id="step-2-enable-the-bundle">Step 2: Enable the Bundle</h3>
+<p>Then, enable the bundle by adding it to the list of registered bundles
+in the <code>config/bundles.php</code> file of your project:</p>
+<pre><code class="language-php">// config/bundles.php
+
+return [
+    // ...
+    Enabel\UserBundle\EnabelUserBundle::class =&gt; ['all' =&gt; true],
+    KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle::class =&gt; ['all' =&gt; true],
+];
+</code></pre>
+<h3 id="step-3-import-routing-configuration">Step 3: Import routing configuration</h3>
+<p>enable the routes by adding it to the list of registered routes
+in the <code>config/routes.yaml</code> file of your project:</p>
+<pre><code class="language-yaml"># config/routes.yaml
+
+enabel_user:
+  resource: &quot;@EnabelUserBundle/config/routes.yaml&quot;
+</code></pre>
+<h3 id="step-4-create-the-configuration">Step 4: Create the configuration</h3>
+<p>Create a file <code>/config/packages/enabel_user.yaml</code> with this content:</p>
+<pre><code class="language-yaml">enabel_user:
+  login_redirect_route: 'app_home'
+  user_class: 'App\Entity\Enabel\User'
+  user_repository: 'App\Repository\Enabel\UserRepository'
+  available_locales: 'fr|en'
+</code></pre>
+<p>Create/Update a file <code>/config/packages/knpu_oauth2_client.yaml</code> with this content:</p>
+<pre><code class="language-yaml">knpu_oauth2_client:
+  clients:
+    azure_o365:
+      type: azure
+      client_id: '%env(AZURE_CLIENT_ID)%'
+      client_secret: '%env(AZURE_CLIENT_SECRET)%'
+      api_version: 'v1.0'
+      url_api: 'https://graph.microsoft.com/'
+      redirect_route: enabel_azure_check
+</code></pre>
+<p>Add the Azure variable in you .env file:</p>
+<pre><code class="language-dotenv">###&gt; enabel/user-bundle ###
+AZURE_CLIENT_ID=paste_here_the_client_id
+AZURE_CLIENT_SECRET=paste_here_the_secret_id
+###&lt; enabel/user-bundle ###
+</code></pre>
+<h3 id="step-5-create-entity-repository">Step 5: Create entity &amp; repository</h3>
+<p>Create a entity and repository that extends the bundle one.</p>
+<p>The User entity <code>/src/entity/Enabel/User.php</code></p>
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Entity\Enabel;
+
+use App\Repository\Enabel\UserRepository;
+use Doctrine\ORM\Mapping as ORM;
+use Enabel\UserBundle\Entity\User as BaseUser;
+
+#[ORM\Entity(repositoryClass: UserRepository::class)]
+class User extends BaseUser
+{
+}
+</code></pre>
+<p>The according repository <code>/src/Repository/Enabel/UserRepository.php</code></p>
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Repository\Enabel;
+
+use App\Entity\Enabel\User;
+use Doctrine\Persistence\ManagerRegistry;
+use Enabel\UserBundle\Repository\UserRepository as BaseUserRepository;
+
+/**
+ * @method User|null   find($id, $lockMode = null, $lockVersion = null)
+ * @method User|null   findOneBy(array $criteria, array $orderBy = null)
+ * @method array&lt;User&gt; findAll()
+ * @method array&lt;User&gt; findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class UserRepository extends BaseUserRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, User::class);
+    }
+}
+</code></pre>
+<h3 id="step-6-create-the-admin-crud-controller">Step 6: Create the admin crud controller</h3>
+<p>Create a easyadmin crud controller that extends the bundle one.</p>
+<p>To manage user <code>/src/Controller/Admin/Enabel/UserCrudController.php</code></p>
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Controller\Admin\Enabel;
+
+use App\Entity\Enabel\User;
+use Enabel\UserBundle\Controller\Admin\UserCrudController as BaseUserCrudController;
+
+class UserCrudController extends BaseUserCrudController
+{
+    public static function getEntityFqcn(): string
+    {
+        return User::class;
+    }
+}
+</code></pre>
+<h3 id="step-7-setup-the-database">Step 7: Setup the database</h3>
+<pre><code class="language-bash">bin/console make:migration
+bin/console doctrine:migration:migrate
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="authentication">Authentication</h3>
+<p>To enable the authentication follow <a href="authentication/">these instructions</a></p>
+<h3 id="easyadmin">Easyadmin</h3>
+<p>To manage users in your Easyadmin dashboard follow <a href="easyadmin/">these instructions</a></p>
+<h3 id="command">Command</h3>
+<p>This bundle come with a bunch of commands, <a href="command/">here</a> is the documentation</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="authentication/" class="btn btn-neutral float-right" title="Authentication">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Enabel/user-bundle" class="fa fa-code-fork" style="color: #fcfcfc"> enabel/user-bundle</a>
+        </span>
+    
+    
+    
+      <span><a href="authentication/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-01-08 15:05:17.486295+00:00
+-->

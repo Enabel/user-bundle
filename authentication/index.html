@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Authentication - enabel/user-bundle</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Authentication";
+        var mkdocs_page_input_path = "authentication.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> enabel/user-bundle
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Installation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Authentication</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#configure-encoders">Configure encoders</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-providers">Configure providers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-firewall">Configure firewall</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-roles">Configure roles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup-access-control">Setup access control</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#azure">Azure</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#client-secret-id">Client &amp; secret id</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-details-from-azure-ad">User details from Azure AD</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../command/">Command</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../easyadmin/">EasyAdmin</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/Enabel/user-bundle/issues">Bug tracker</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">enabel/user-bundle</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Authentication</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Enabel/user-bundle/edit/main/docs/authentication.md">Edit on enabel/user-bundle</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="authentication">Authentication</h1>
+<h2 id="configure-encoders">Configure encoders</h2>
+<pre><code class="language-yaml">security:
+    ...
+    password_hashers:
+        ...
+        Enabel\UserBundle\Entity\User: argon2i
+</code></pre>
+<h2 id="configure-providers">Configure providers</h2>
+<pre><code class="language-yaml">security:
+    ...
+    providers:
+        ...
+        enabel_user_provider:
+            id: enabel_user.provider
+</code></pre>
+<h2 id="configure-firewall">Configure firewall</h2>
+<pre><code class="language-yaml">security:
+    ...
+    firewalls:
+        ...
+        main:
+            lazy: true
+            provider: enabel_user_provider
+            custom_authenticator:
+                - enabel_user.local_authenticator
+                - enabel_user.azure_authenticator
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            switch_user: { role: ROLE_ALLOWED_TO_SWITCH }
+            remember_me:
+                secret: &quot;%env(APP_SECRET)%&quot;
+                name: ENABEL_REMEMBER_ME
+                lifetime: 31536000
+                path: /
+                always_remember_me: true
+            logout:
+                path: enabel_logout
+                target: enabel_login
+
+</code></pre>
+<h2 id="configure-roles">Configure roles</h2>
+<pre><code class="language-yaml">security:
+    ...
+    role_hierarchy:
+        ...
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN: [ROLE_USER]
+        ROLE_USER: []
+</code></pre>
+<h2 id="setup-access-control">Setup access control</h2>
+<pre><code class="language-yaml">security:
+    ...
+    access_control:
+        - { path: ^/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/azure/login, roles: PUBLIC_ACCESS }
+        - { path: ^/azure/check, roles: PUBLIC_ACCESS }
+        - { path: ^/auth/logout, roles: PUBLIC_ACCESS }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        ...
+</code></pre>
+<h2 id="azure">Azure</h2>
+<h3 id="client-secret-id">Client &amp; secret id</h3>
+<p>You need to request a new clientId and clientSecret for a new application on Azure.</p>
+<ol>
+<li>Go to <code>Azure portal</code> https://portal.azure.com</li>
+<li>Go to <code>Active Directory</code></li>
+<li>Go to <code>App registrations</code></li>
+<li>Click on <code>new Registration</code> and follow the wizard.<br />
+   (give it a name like 'auth-connector-APP_NAME' and make a decision on the supported accounts, single tenant should be enough but this depends on your organisation)</li>
+<li>When created the application is created write down the following details</li>
+<li>'Application (client) id', this will be your <code>AZURE_CLIENT_ID</code></li>
+<li>Then we go in the menu to the <code>API permissions</code> to view the permissions that are required</li>
+<li>You should see that the following delegated permissions are granted:<br />
+   Microsoft Graph:<ul>
+<li>User.Read</li>
+</ul>
+</li>
+<li>Click on the <code>Grant admin consent for ...Company...</code></li>
+<li>Go in the menu to <code>Certificates &amp; secrets</code></li>
+<li>Click on <code>new client secret</code></li>
+<li>Give it a description and expiry date and the value will be your <code>AZURE_CLIENT_SECRET</code></li>
+<li>Then we go in the menu to the <code>Manifest</code> to accept the additional information that is returned in the token <a href="#user-details-from-azure-ad">see the user details section</a></li>
+<li>Change the value of <code>acceptMappedClaims</code> from <code>null</code> to <code>true</code></li>
+<li>Finally, go in the menu to <code>Authentication</code></li>
+<li>Click on <code>Add a platform</code></li>
+<li>Choose Web applications <code>Web</code></li>
+<li>Fill the info &amp; click on <code>Configure</code><ul>
+<li>Redirect URIs: <code>https://127.0.0.1:8000/azure/check</code></li>
+<li>Front-channel logout URL: leave blank</li>
+<li>Implicit grant and hybrid flows: Select <code>ID tokens</code></li>
+</ul>
+</li>
+<li>Optionally, you can add more URIs like for testing environments or also localhost by clicking on <code>Add URI</code></li>
+<li>That's it, include the previous information <code>AZURE_CLIENT_ID</code> &amp; <code>AZURE_CLIENT_SECRET</code> in your <code>.env.local</code> file.</li>
+</ol>
+<p>Example:</p>
+<pre><code class="language-dotenv">AZURE_CLIENT_ID=19b725a4-1a39-5fa6-bdd0-7fe992bcf33c
+AZURE_CLIENT_SECRET=kW74Q~.nWu9HVZ7Rnj.2y][x9.cQTuef:et_
+</code></pre>
+<h3 id="user-details-from-azure-ad">User details from Azure AD</h3>
+<p>The authenticator needs additional information from Azure AD for the user's profile.
+Follow these steps to add this information to the authentication token.</p>
+<ol>
+<li>Go to <code>Azure portal</code> https://portal.azure.com</li>
+<li>Go to <code>Active Directory</code></li>
+<li>Go to <code>App registrations</code></li>
+<li>Retrieve the application registered in <a href="#client--secret-id">the previous step</a></li>
+<li>In the overview, go to <code>Managed application in local directory: auth-connector-...</code></li>
+<li>
+<p>Go to <code>Single sign-on</code> and edit/add the Attributes &amp; Claims as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Claim name</th>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>country</td>
+<td>JWT</td>
+<td>user.country</td>
+</tr>
+<tr>
+<td>displayName</td>
+<td>JWT</td>
+<td>user.displayname</td>
+</tr>
+<tr>
+<td>employeeId</td>
+<td>JWT</td>
+<td>user.employeeid</td>
+</tr>
+<tr>
+<td>jobTitle</td>
+<td>JWT</td>
+<td>user.jobtitle</td>
+</tr>
+<tr>
+<td>language</td>
+<td>JWT</td>
+<td>user.preferredlanguage</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>That's it, you will now be able to connect with your Azure account.</p>
+</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../command/" class="btn btn-neutral float-right" title="Command">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Enabel/user-bundle" class="fa fa-code-fork" style="color: #fcfcfc"> enabel/user-bundle</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../command/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
