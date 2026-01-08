@@ -17,7 +17,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('enabel_user');
         $rootNode = $treeBuilder->getRootNode();
 
-        /** @phpstan-ignore-next-line */
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()

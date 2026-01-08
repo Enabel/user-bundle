@@ -101,6 +101,7 @@ class User implements
      */
     public function getUserIdentifier(): string
     {
+        /** @phpstan-ignore-next-line */
         return (string) $this->email;
     }
 
